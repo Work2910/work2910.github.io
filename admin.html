@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Owner login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<main class="auth" id="login-view">
+  <div class="auth-card">
+    <a class="auth-brand" href="./">Shoumik<span>.</span></a>
+    <h1>Owner login</h1>
+    <p class="sub">Sign in to edit your portfolio. Visitors never see this page.</p>
+    <form class="auth-form" id="login-form" novalidate>
+      <div class="auth-field">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" autocomplete="username" required>
+      </div>
+      <div class="auth-field">
+        <label for="login-pass">Password</label>
+        <div class="pw-wrap">
+          <input id="login-pass" type="password" autocomplete="current-password" required>
+          <button type="button" id="pw-toggle" aria-pressed="false" aria-label="Show password">Show</button>
+        </div>
+      </div>
+      <div class="auth-row"><button type="button" class="link-btn" id="forgot-btn">Forgot password?</button></div>
+      <p class="auth-msg" id="login-msg" role="status" aria-live="polite" hidden></p>
+      <button type="submit" class="auth-submit" id="login-btn">Log in</button>
+    </form>
+    <p class="auth-foot"><a href="./">← Back to the public site</a></p>
+  </div>
+</main>
+
+<div id="admin-view" hidden>
+  <div id="app"></div>
+  <aside class="ed-panel" aria-label="Site editor">
+    <div class="ed-owner">
+      <span class="who"><i></i>Signed in as&nbsp;<b id="who"></b></span>
+      <span class="acts">
+        <button type="button" class="ed-btn ghost" id="ed-preview">Preview</button>
+        <a class="ed-btn ghost" href="./" target="_blank" rel="noopener">View public site ↗</a>
+        <button type="button" class="ed-btn" id="logout-btn">Log out</button>
+      </span>
+    </div>
+    <div class="ed-head">
+      <div><b>Edit your site</b><span class="ed-status" id="ed-status"></span></div>
+      <div class="ed-actions"><button type="button" class="ed-btn ghost" id="ed-discard">Discard</button><button type="button" class="ed-btn primary" id="ed-save" disabled>Save</button></div>
+    </div>
+    <div class="ed-form" id="ed-form"></div>
+  </aside>
+  <button type="button" class="ed-btn primary" id="back-to-editor">✎ Back to editor</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
